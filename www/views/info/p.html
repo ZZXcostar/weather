@@ -1,0 +1,24 @@
+<ion-view view-title="天气预报">
+  <ion-content>
+    <div>{{ cinfo | json }}</div>
+    <div ng-repeat="row in data" class="list list-inset">
+      <div class="item item-body">
+        {{ row.city }} （{{ row.wd }}°C）
+        <p>{{ row.gm }}</p>
+      </div>
+      <div class="item row w">
+        <div ng-repeat="day in row.wk" class="col">
+          <h3>{{ day.week }}</h3>
+          <h4>{{ day.day }}</h4>
+          <div>{{ day.tmp }}</div>
+          <p>{{ day.fx }}</p>
+          <p>{{ day.fl }}</p>
+          <div>
+            <i class="wicon wi {{ day.type | wicon }}"></i>
+          </div>
+          <div>{{ day.type }}</div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
